@@ -1,6 +1,7 @@
 #ifndef HEADER
 #define HEADER
 #include <stdlib.h>
+#include <stdio.h>
 
 /*-------------------- MACROS ------------------------*/
 
