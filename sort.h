@@ -2,6 +2,7 @@
 #define HEADER
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 /*-------------------- MACROS ------------------------*/
 
@@ -22,6 +23,8 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+/*------------------ PROTOTYPES ---------------------*/
+void bubble_sort(int *array, size_t size);
 
 /*-------------------- UTILS ------------------------*/
 void print_array(const int *array, size_t size);
