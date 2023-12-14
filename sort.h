@@ -26,6 +26,7 @@ typedef struct listint_s
 /*------------------ PROTOTYPES ---------------------*/
 void bubble_sort(int *array, size_t size);
 void selection_sort(int *array, size_t size);
+void shell_sort(int *array, size_t size);
 
 /*-------------------- UTILS ------------------------*/
 void print_array(const int *array, size_t size);
