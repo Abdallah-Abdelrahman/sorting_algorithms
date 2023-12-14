@@ -8,8 +8,8 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
-# Scan each .c file
-for file in *.c
+# Scan each .c & .h files
+for file in *.{c,h}
 do
     # Skip the file if it is print_array.c, print_list.c or ends with main.c
     if [[ "$file" == "print_array.c" || "$file" == "print_list.c" || "$file" == *main.c ]]; then
