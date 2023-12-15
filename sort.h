@@ -28,6 +28,8 @@ void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void insertion_sort_list(listint_t **list);
 void quick_sort(int *array, size_t size);
+void _qsort(int *arr, int lo, int hi, size_t size);
+int partition(int *arr, int lo, int hi, size_t size);
 
 /*-------------------- MOCKS ------------------------*/
 #endif /* HEADER */

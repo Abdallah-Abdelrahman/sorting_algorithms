@@ -1,12 +1,10 @@
 #include "sort.h"
-#include <stddef.h>
 
-void _qsort(int *arr, int lo, int hi, size_t size);
-int partition(int *arr, int lo, int hi, size_t size);
 
 /**
  * quick_sort - sorts an array of integers in ascending order.
- * Description: using the Quick sort algorithm, it is slightly faster
+ * Description: using the Quick sort algorithm, (Lomuto partition)
+ * it is slightly faster
  * than merge sort and heapsort for randomized data,
  * particularly on larger distributions.
  * @array: array of integers
@@ -22,8 +20,10 @@ void quick_sort(int *array, size_t size)
 
 /**
  * _qsort - sort ascending recursively
+ * @arr: array of int
  * @lo: smallest index corresponds to array half
  * @hi: biggest index corresponds to the half
+ * @size: legnth of array
  *
  * Return: Nothing
  */
@@ -31,7 +31,7 @@ void _qsort(int *arr, int lo, int hi, size_t size)
 {
 	int pidx;
 
-	if (lo >= hi || (int)lo < 0)
+	if (lo >= hi || lo < 0)
 		return;
 	pidx = partition(arr, lo, hi, size);
 
@@ -40,44 +40,38 @@ void _qsort(int *arr, int lo, int hi, size_t size)
 }
 /**
  * partition - parition the array to determine the pivot
+ * @arr: array of int
  * @lo: smallest index corresponds to array half
  * @hi: biggest index corresponds to the half
+ * @size: legnth of array
  *
  * Return: pivot index
  */
 int partition(int *arr, int lo, int hi, size_t size)
 {
-	int i = lo - 1, j = lo;
-	int pivot = arr[hi], tmp;
+	int i = lo - 1, j = lo,
+	    pivot = arr[hi], tmp;
+	static int ignore;
 
 	for (j = lo; j < hi; j++)
 	{
 		if (arr[j] <= pivot)
 		{
 			/* swap, and advance `i` */
-
 			tmp = arr[++i];
 			arr[i] = arr[j];
 			arr[j] = tmp;
-/**
- * 			arr[j] ^= arr[++i];
- * 			arr[i] ^= arr[j];
- * 			arr[j] ^= arr[i];
- */
-			print_array(arr, size);
+			if (!ignore)
+				print_array(arr, size);
+			ignore = 1;
 		}
 	}
 
 	/* shift the pivot to its right position */
-
 	tmp = arr[++i];
 	arr[i] = arr[hi];
 	arr[hi] = tmp;
-/**
- * 	arr[hi] ^= arr[++i];
- * 	arr[i] ^= arr[hi];
- * 	arr[hi] ^= arr[i];
- */
+	print_array(arr, size);
 
 	return (i);
 }
