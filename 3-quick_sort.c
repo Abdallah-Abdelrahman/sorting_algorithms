@@ -37,8 +37,8 @@ void _qsort(int *arr, int lo, int hi, size_t size)
 		return;
 	pidx = partition(arr, lo, hi, size);
 
-	_qsort(arr, pidx + 1, hi, size); /* right */
 	_qsort(arr, lo, pidx - 1, size);/* left */
+	_qsort(arr, pidx + 1, hi, size); /* right */
 }
 /**
  * partition - parition the array to determine the pivot
@@ -56,14 +56,15 @@ int partition(int *arr, int lo, int hi, size_t size)
 
 	for (j = lo; j < hi; j++)
 	{
-		if (arr[j] <= pivot && i != j)
+		if (arr[j] <= pivot)
 		{
 			/* swap, and advance `i` */
 			tmp = arr[++i];
 			arr[i] = arr[j];
 			arr[j] = tmp;
 
-			print_array(arr, size);
+			if (i != j)
+				print_array(arr, size);
 		}
 	}
 
@@ -71,7 +72,8 @@ int partition(int *arr, int lo, int hi, size_t size)
 	tmp = arr[++i];
 	arr[i] = arr[hi];
 	arr[hi] = tmp;
-	print_array(arr, size);
+	if (i != j)
+		print_array(arr, size);
 
 	return (i);
 }
