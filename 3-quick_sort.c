@@ -52,19 +52,19 @@ void _qsort(int *arr, int lo, int hi, size_t size)
 int partition(int *arr, int lo, int hi, size_t size)
 {
 	int i = lo - 1, j = lo,
-	    pivot = arr[hi], tmp;
+	    pivot = arr[hi], tmp, ignore = 0;
 
 	for (j = lo; j < hi; j++)
 	{
-		if (arr[j] <= pivot)
+		if (arr[j] <= pivot && j != ++i)
 		{
 			/* swap, and advance `i` */
-			tmp = arr[++i];
+			tmp = arr[i];
 			arr[i] = arr[j];
 			arr[j] = tmp;
+			printf("%i, %i\n", arr[j], arr[i]);
 
-			if (i != j)
-				print_array(arr, size);
+			print_array(arr, size);
 		}
 	}
 
