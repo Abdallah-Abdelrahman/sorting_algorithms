@@ -10,12 +10,14 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *prev, *next = *list;
+	listint_t *prev, *next;
 
 
 	/* bail out when only one item */
-	if (!next || !next->next)
+	if (!list || !*list || !(*list)->next)
 		return;
+
+	next = *list;
 
 	while ((next = next->next))
 	{
