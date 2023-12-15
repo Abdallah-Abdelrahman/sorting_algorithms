@@ -55,7 +55,7 @@ int partition(int *arr, int lo, int hi, size_t size)
 
 	for (j = lo; j < hi; j++)
 	{
-		if (arr[j] <= pivot)
+		if (arr[j] <= pivot && i != j)
 		{
 			/* swap, and advance `i` */
 			tmp = arr[++i];
