@@ -40,6 +40,9 @@ void quick_sort(int *array, size_t size);
 void _qsort(int *arr, int lo, int hi, size_t size);
 int partition(int *arr, int lo, int hi, size_t size);
 void swap(int *array, size_t i, size_t j);
+void merge_sort(int *array, size_t size);
+void td_merge(int *b, int start, int mid, int end, int *a);
+void td_split(int *a, int start, int end, int *b);
 
 /*-------------------- MOCKS ------------------------*/
 #endif /* HEADER */
