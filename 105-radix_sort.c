@@ -48,7 +48,7 @@ void radix_sort(int *array, size_t size)
 void base_sort(int *input, int *output, size_t size, int max, int expo)
 {
 	size_t i;
-	int base = 10, bin, prefix_sum[BASE10];
+	int bin, prefix_sum[BASE10];
 
 	if (max == 0)
 		return;
@@ -60,7 +60,7 @@ void base_sort(int *input, int *output, size_t size, int max, int expo)
 	/* counting prefixes */
 	for (i = 0; i < size; i++)
 	{
-		bin = (input[i] / _pow(base, expo)) % base;
+		bin = (input[i] / _pow(BASE10, expo)) % BASE10;
 		prefix_sum[bin]++;
 	}
 
@@ -71,7 +71,7 @@ void base_sort(int *input, int *output, size_t size, int max, int expo)
 	/* fill-in the ouput according to prefix values */
 	for (i = size; i-- > 0; )
 	{
-		bin = (input[i] / _pow(base, expo)) % base;
+		bin = (input[i] / _pow(BASE10, expo)) % BASE10;
 		output[--prefix_sum[bin]] = input[i];
 	}
 
