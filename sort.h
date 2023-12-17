@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+/*-------------------- MACROS ------------------------*/
+#define BASE10 10
 
 /*-------------------- ENUMS ------------------------*/
 /**
@@ -90,5 +92,7 @@ void td_split(int *a, int start, int end, int *b);
 void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2);
 void heapify(int *array, size_t size);
 void sift_down(int *array, size_t start, size_t end, size_t size);
+void base_sort(int *input, int *output, size_t size, int max, int expo);
+int _pow(int b, int e);
 
 #endif /* HEADER */
