@@ -69,6 +69,7 @@ void base_sort(int *input, int *output, size_t size, int max, int expo)
 		prefix_sum[i] += prefix_sum[i - 1];
 
 	/* fill-in the ouput according to prefix values */
+	/* incrementing `i` this way to avoid compiler warning (hence size_t) */
 	for (i = size; i-- > 0; )
 	{
 		bin = (input[i] / _pow(BASE10, expo)) % BASE10;
