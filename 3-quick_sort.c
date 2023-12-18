@@ -52,26 +52,28 @@ void _qsort(int *arr, int lo, int hi, size_t size)
 int partition(int *arr, int lo, int hi, size_t size)
 {
 	int i = lo - 1, j = lo,
-	    pivot = arr[hi], tmp;
+	    pivot = arr[hi];
 
 	for (j = lo; j < hi; j++)
 	{
 		if (arr[j] <= pivot && j != ++i)
 		{
-			/* swap, and advance `i` */
-			tmp = arr[i];
-			arr[i] = arr[j];
-			arr[j] = tmp;
+			/* swap using bit-wise manipulation */
+			arr[i] ^= arr[j];
+			arr[j] ^= arr[i];
+			arr[i] ^= arr[j];
 			print_array(arr, size);
 		}
 	}
 
 	/* shift the pivot to its right position */
-	tmp = arr[++i];
-	arr[i] = arr[hi];
-	arr[hi] = tmp;
-	if (i != j)
+	if (++i != j)
+	{
+		arr[i] ^= arr[hi];
+		arr[hi] ^= arr[i];
+		arr[i] ^= arr[hi];
 		print_array(arr, size);
+	}
 
 	return (i);
 }
