@@ -94,5 +94,7 @@ void heapify(int *array, size_t size);
 void sift_down(int *array, size_t start, size_t end, size_t size);
 void base_sort(int *input, int *output, size_t size, int max, int expo);
 int _pow(int b, int e);
+void qsort_Hoare(int *arr, int lo, int hi, size_t size);
+int partition_Hoare(int *arr, int lo, int hi, size_t size);
 
 #endif /* HEADER */
