@@ -96,5 +96,7 @@ void base_sort(int *input, int *output, size_t size, int max, int expo);
 int _pow(int b, int e);
 void qsort_Hoare(int *arr, int lo, int hi, size_t size);
 int partition_Hoare(int *arr, int lo, int hi, size_t size);
+void bmerge(int *arr, int low, size_t count, int dir, size_t size);
+void bsort(int *arr, int low, size_t count, int dir, size_t size);
 
 #endif /* HEADER */

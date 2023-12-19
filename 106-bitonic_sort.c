@@ -1,8 +1,5 @@
 #include "sort.h"
-#include <stddef.h>
 
-void bmerge(int *arr, int low, size_t count, int dir, size_t size);
-void bsort(int *arr, int low, size_t count, int dir, size_t size);
 
 
 /**
@@ -55,25 +52,23 @@ void bsort(int *arr, int low, size_t count, int dir, size_t size)
  */
 void bmerge(int *arr, int low, size_t count, int dir, size_t size)
 {
-	int i, k = count / 2;
+	size_t i, k;
 
-	if (count > 1)
+	for (k = count / 2; k > 0; k--)
 	{
-		for (i = low; i < low + k; i++)
+		for (i = low; i < count - k + low; i++)
 		{
-			if (dir == (arr[i] > arr[i + k]))
+			if (dir == (arr[i] > arr[i + k] ? 1 : 0))
 			{
 				arr[i] ^= arr[i + k];
 				arr[i + k] ^= arr[i];
 				arr[i] ^= arr[i + k];
-				printf("Result [%li/%li] (%s):\n", count, size, dir == 1 ? "UP" : "DOWN");
-				print_array(arr + low, count);
+
 			}
 		}
-
-		bmerge(arr, low, k, dir, size);
-		bmerge(arr, low + k, k, dir, size);
 	}
+	printf("Result [%li/%li] (%s):\n", count, size, dir == 1 ? "UP" : "DOWN");
+	print_array(arr + low, count);
 }
 
 #if 0
