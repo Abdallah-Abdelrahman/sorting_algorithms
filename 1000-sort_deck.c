@@ -144,19 +144,3 @@ void sort_deck(deck_node_t **deck)
 
 	collect_and_relink_cards(deck, buckets, tail);
 }
-
-/**
- * free_deck - Free the memory allocated for the deck
- * @deck: The deck to be freed
- */
-void free_deck(deck_node_t *deck)
-{
-	deck_node_t *next_node;
-
-	while (deck)
-	{
-		next_node = deck->next;
-		free(deck);
-		deck = next_node;
-	}
-}
