@@ -49,5 +49,6 @@ The following table provides an overview of the algorithms implemented during th
 | **Selection Sort** | Used in education for its simplicity | $$O(N^2)$$ | $$O(1)$$ | Yes | No |
 | **Count Sort** | Used when the range of potential items is known | $$O(N+K)$$ where K is the range of input | $$O(N+K)$$ where K is the range of input | No | Yes |
 | **Radix Sort** | Used in data processing such as sorting large integers or strings | $$O(NK)$$ where K is the number of digits | $$O(N+K)$$ where K is the number of digits | No | Yes |
+| **Bitonic Sort** | Used as consturction method for building a sorting network | Best, Average and worst case: $$O(log^2(n))$$ for parallel. non-parallel: $$O(n log^2 (n))$$ , where n is a power of 2 | $$O(nlogn)$$ due to stack frames from recursive call | Yes | No
 | **Heap Sort** | Used in priority queues and scheduling algorithms | $$O(N \log N)$$ | $$O(1)$$ | Yes | No |
 | **Bucket Sort** | Used in computer graphics to sort pixels based on colors | Average and Best: $$\theta(N+K)$$, $$\Omega(N+K)$$, Worst: $$O(N^2)$$ | $$O(NK)$$ where K is the number of buckets | No | Yes |
